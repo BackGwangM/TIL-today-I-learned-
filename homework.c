@@ -15,7 +15,7 @@ int main(void)
 int select_sort(void)
 {
 	int array[10];
-	int min, count = 0, find_start, input, search_count = 0;
+	int min, count = 0, find_start;
 	int i, temp, j, exchange_count = 0, compare_count = 0, total_exchange = 0, total_compare = 0;
 
 	system("cls");
@@ -46,11 +46,9 @@ int select_sort(void)
 			compare_count++;
 		}
 
-
-		if (array[min] != array[j]) {
 			swap(temp, array[min], array[j]);
 			exchange_count++;
-		}
+			
 		total_exchange = total_exchange + exchange_count;
 		total_compare = total_compare + compare_count;
 		printf("\t%dpass : \t", j + 1);
@@ -71,8 +69,8 @@ int select_sort(void)
 	}
 	printf("\t\t총 비교 횟수 : %d \t교환 횟수 : %d\n", total_compare, total_exchange);
 
-	printf("\n\n이진탐색으로 이동하고 싶다면  엔터를 쳐주세요.\n");
-	printf("     원하지 않으신다면 꺼주시면 됩니다!.\n");
+	printf("\n\n이진탐색으로 이동하고 싶다면 0을 입력하시고  엔터를 쳐주세요.\n");
+	printf("           원하지 않으신다면 꺼주시면 됩니다!.\n");
 	scanf("%d", &find_start);
 
 	if (find_start == 0)
@@ -117,14 +115,14 @@ int search(int *array, int count)
 		else if (input < array[mid])
 		{
 			count_search++;
-			printf("검색 위치 : %d \t검색위치의 값 : %d\n", mid, array[mid]);
+			printf("%d번째로 탐색한 곳 \t 검색 위치 : %d \t검색위치의 값 : %d\n",count_search, mid, array[mid]);
 			high = mid - 1;
 		}
 
 		else if (input > array[mid])
 		{
 			count_search++;
-			printf("검색 위치 : %d \t검색위치의 값 : %d\n", mid, array[mid]);
+			printf("%d번째 탐색한 곳 \t 검색 위치 : %d \t검색위치의 값 : %d\n",count_search, mid, array[mid]);
 			low = mid + 1;
 		}
 		else
