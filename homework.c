@@ -3,12 +3,11 @@
 
 int main(void)
 {
-	printf("***************************************************************************\n");
-	printf("               삽입 정렬을 해드리는 프로그램 입니다.\n");
-	printf("               정렬이 끝난 후 이진탐색이 가능합니다.\n");
-	printf("      정렬을 원하신다면 아무거나 누르시고 엔터를 눌러주세요.\n");
-	printf("***************************************************************************\n");
-	
+	printf("************************************************************\n");
+	printf("         선택 정렬을 해드리는 프로그램 입니다.\n");
+	printf("         정렬이 끝난 후 이진탐색이 가능합니다.\n");
+	printf("          정렬을 원하신다면 엔터를 쳐주세요.\n");
+	printf("************************************************************\n");
 	getchar();
 	select_sort();
 }
@@ -16,19 +15,19 @@ int main(void)
 int select_sort(void)
 {
 	int array[10];
-	int min, count = 0, find_start;
-	int i, temp, j = 1, exchange_count = 0, compare_count = 0, total_exchange = 0, total_compare = 0;
+	int min, count = 0, find_start, input, search_count = 0;
+	int i, temp, j, exchange_count = 0, compare_count = 0, total_exchange = 0, total_compare = 0;
 
 	system("cls");
-	printf("***************************************************************************\n");
-	printf("               삽입 정렬 프로세스가 실행 되었습니다.\n");
-	printf("        정렬을 원하시는 숫자를 입력해주세요(10개 까지만 가능)\n");
-	printf("       그만 입력하시고 싶으시다면 9999를 입력해 주시면 됩니다.\n");
-	printf("***************************************************************************\n");
+	printf("************************************************************\n");
+	printf("         선택 정렬 프로세스가 실행 되었습니다.\n");
+	printf("  정렬을 원하시는 숫자를 입력해주세요(10개 까지만 가능)\n");
+	printf(" 그만 입력하시고 싶으시다면 9999를 입력해 주시면 됩니다.\n");
+	printf("************************************************************\n");
 
 	for (i = 0; i<10; i++)
 	{
-		printf("%d번째 숫자 : ", i+1);
+		printf("%d번째 숫자 : ", i + 1);
 		scanf("%d", &array[i]);
 		count++;
 		if (array[i] == 9999)
@@ -36,14 +35,17 @@ int select_sort(void)
 			count--;
 			break;
 		}
-
 	}
 
-	for (i = 0; i<count; i++) {
-			
-		compare_count++;
-				
+	for (j = 0; j<count; j++) {
+		min = j;
+		for (i = j; i<count; i++)
+		{
+			if (array[min]>array[i])
+				min = i;
+			compare_count++;
 		}
+
 
 		if (array[min] != array[j]) {
 			swap(temp, array[min], array[j]);
@@ -51,7 +53,7 @@ int select_sort(void)
 		}
 		total_exchange = total_exchange + exchange_count;
 		total_compare = total_compare + compare_count;
-		printf("\t%dpass : \t", j);
+		printf("\t%dpass : \t", j + 1);
 
 		for (i = 0; i<count; i++) {
 			printf("%d ", array[i]);
@@ -69,18 +71,16 @@ int select_sort(void)
 	}
 	printf("\t\t총 비교 횟수 : %d \t교환 횟수 : %d\n", total_compare, total_exchange);
 
-	printf("\n\n\n***************************************************************************\n");
-	printf("    이진탐색으로 이동하고 싶다면  1을 누르시고 엔터를 눌러주세요.\n");
-	printf("                 원하지 않으신다면 끄시면 됩니다.\n");
-	printf("***************************************************************************\n");
+	printf("\n\n이진탐색으로 이동하고 싶다면  엔터를 쳐주세요.\n");
+	printf("     원하지 않으신다면 꺼주시면 됩니다!.\n");
 	scanf("%d", &find_start);
-	
-	if(find_start == 1) 
-	search(array, count);
-	
-	else
-	return 0;
 
+	if (find_start == 0)
+	{
+		search(array, count);
+	}
+	else
+		return 0;
 
 }
 
@@ -88,32 +88,21 @@ int search(int *array, int count)
 {
 	int input = 0, count_search;
 	int high = count - 1;
-	int low = 0, mid, i,j;
+	int low = 0, mid, i, j;
 
 	system("cls");
-	printf("***************************************************************************\n");
-	printf("                 이진탐색  프로세스가 실행 되었습니다.\n");
-	printf("                 찾기를 원하시는 숫자를 입력해주세요\n");
-	printf("***************************************************************************\n");
+	printf("************************************************************\n");
+	printf("            이진탐색  프로세스가 실행 되었습니다.\n");
+	printf("             찾기를 원하시는 숫자를 입력해주세요\n");
+	printf("************************************************************\n\n");
 	
 	
-	for(i = 0; i<count/3; i++)
+	for(i = 0; i<count; i++)
 	{
-		printf("%d번째 인덱스 값 : %d\t", i, array[i]);
+		printf("%d번째 인덱스 : %d\n",i, array[i]);
 	}
-		printf("\n");
-	for(i = 3; i<count/3*2; i++)
-	{
-		printf("%d번째 인덱스 값 : %d\t", i, array[i]);
-	}
-		printf("\n");
-	for(i = 6; i<count; i++)
-	{
-		printf("%d번째 인덱스 값 : %d\t", i, array[i]);
-	}
-		printf("\n");
 	
-	printf("찾기를 원하는 숫자 : ");
+	printf("\n\n찾기를 원하는 숫자 : ");
 	scanf("%d", &input);
 
 
@@ -121,7 +110,6 @@ int search(int *array, int count)
 	while (low <= high) {
 		mid = (low + high) / 2;
 		if (input == array[mid]){
-			count_search++;
 			printf("%d번째에서 %d 탐색 성공!\t탐색횟수 : %d", mid, array[mid], count_search);
 			break;
 		}
@@ -129,17 +117,22 @@ int search(int *array, int count)
 		else if (input < array[mid])
 		{
 			count_search++;
+			printf("검색 위치 : %d \t검색위치의 값 : %d\n", mid, array[mid]);
 			high = mid - 1;
 		}
 
 		else if (input > array[mid])
 		{
 			count_search++;
+			printf("검색 위치 : %d \t검색위치의 값 : %d\n", mid, array[mid]);
 			low = mid + 1;
 		}
 		else
 		{
-			printf("ERROR! 찾지 못하였습니다!!");
+			mid = -1;
 		}
-}
+	}
+	if(mid == -1){
+		printf("ERROR! 찾지 못하였습니다!!");
+	}
 }
