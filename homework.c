@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-#define swap(temp, a, b) ((temp)=(a), (a)=(b), (b)=(temp))
+#define change(temp, a, b) ((temp)=(a), (a)=(b), (b)=(temp))
 
 int main(void)
 {
@@ -16,7 +16,7 @@ int main(void)
 int select_sort(void)
 {
 	int array[10];
-	int min, count = 0, find_start;
+	int min, count = 0;
 	int i, temp, j, exchange_count = 0, compare_count = 0, total_exchange = 0, total_compare = 0;
 
 	system("cls");
@@ -47,7 +47,7 @@ int select_sort(void)
 			compare_count++;
 		}
 
-			swap(temp, array[min], array[j]);
+			change(temp, array[min], array[j]);
 			exchange_count++;
 			
 		total_exchange = total_exchange + exchange_count;
