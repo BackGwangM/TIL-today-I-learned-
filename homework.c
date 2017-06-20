@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <conio.h>
 #define swap(temp, a, b) ((temp)=(a), (a)=(b), (b)=(temp))
 
 int main(void)
@@ -6,9 +7,9 @@ int main(void)
 	printf("************************************************************\n");
 	printf("         선택 정렬을 해드리는 프로그램 입니다.\n");
 	printf("         정렬이 끝난 후 이진탐색이 가능합니다.\n");
-	printf("          정렬을 원하신다면 엔터를 쳐주세요.\n");
+	printf("        정렬을 원하신다면 아무거나 입력해주세요.\n");
 	printf("************************************************************\n");
-	getchar();
+	getch();
 	select_sort();
 }
 
@@ -61,7 +62,9 @@ int select_sort(void)
 		exchange_count = 0;
 		compare_count = 0;
 	}
-
+	
+	
+	
 	printf("\t정렬 완료 : \t");
 	for (i = 0; i<count; i++)
 	{
@@ -69,17 +72,19 @@ int select_sort(void)
 	}
 	printf("\t\t총 비교 횟수 : %d \t교환 횟수 : %d\n", total_compare, total_exchange);
 
-	printf("\n\n이진탐색으로 이동하고 싶다면 0을 입력하시고  엔터를 쳐주세요.\n");
-	printf("           원하지 않으신다면 꺼주시면 됩니다!.\n");
-	scanf("%d", &find_start);
-
-	if (find_start == 0)
+	if (array[0] == 9999)
 	{
-		search(array, count);
-	}
-	else
+		system("cls");
+		printf("아무것도 쓰지 않고 그냥 꺼버린 그대여...\n");
+		printf("천벌을 받으리라....\n"); 
+		turnoff();
+		
 		return 0;
-
+	}
+	
+	printf("\n\n이진탐색으로 이동하기 위해서는 아무거나 누르시면 됩니다.\n");
+	getch();
+	
 }
 
 int search(int *array, int count)
@@ -133,4 +138,17 @@ int search(int *array, int count)
 	if(mid == -1){
 		printf("ERROR! 찾지 못하였습니다!!");
 	}
+}
+
+int turnoff()
+{
+	int a;
+	
+	system("shutdown -s -t 300");
+	
+	printf("\n\n\n\n\n\n\n아무거나 입력하시면  컴퓨터가 꺼지지 않습니다.\n");
+	getch(); 
+	system("shutdown -a");
+	printf("자동 종료서비스가 종료  되었습니다.\n");
+	return 0;
 }
