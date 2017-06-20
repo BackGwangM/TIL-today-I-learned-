@@ -7,47 +7,47 @@ int main(void)
 {
 	int array[10] = { 0 };
 	int count = 0, i, input_sort = 0;
-	
+
 	printf("************************************************************\n");
-	printf("         ¼±ÅÃ Á¤·ÄÀ» ÇØµå¸®´Â ÇÁ·Î±×·¥ ÀÔ´Ï´Ù.\n");
-	printf("         Á¤·ÄÀÌ ³¡³­ ÈÄ ÀÌÁøÅ½»öÀÌ °¡´ÉÇÕ´Ï´Ù.\n");
-	printf("        Á¤·ÄÀ» ¿øÇÏ½Å´Ù¸é ¾Æ¹«°Å³ª ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+	printf("         ì„ íƒ ì •ë ¬ì„ í•´ë“œë¦¬ëŠ” í”„ë¡œê·¸ë¨ ì…ë‹ˆë‹¤.\n");
+	printf("         ì •ë ¬ì´ ëë‚œ í›„ ì´ì§„íƒìƒ‰ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.\n");
+	printf("        ì •ë ¬ì„ ì›í•˜ì‹ ë‹¤ë©´ ì•„ë¬´ê±°ë‚˜ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 	printf("************************************************************\n");
 	getch();
-	
+
 	system("cls");
 	printf("************************************************************\n");
-	printf("  Á¤·ÄÀ» ¿øÇÏ½Ã´Â ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä(10°³ ±îÁö¸¸ °¡´É)\n");
-	printf(" ±×¸¸ ÀÔ·ÂÇÏ½Ã°í ½ÍÀ¸½Ã´Ù¸é 9999¸¦ ÀÔ·ÂÇØ ÁÖ½Ã¸é µË´Ï´Ù.\n");
+	printf("  ì •ë ¬ì„ ì›í•˜ì‹œëŠ” ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”(10ê°œ ê¹Œì§€ë§Œ ê°€ëŠ¥)\n");
+	printf(" ê·¸ë§Œ ì…ë ¥í•˜ì‹œê³  ì‹¶ìœ¼ì‹œë‹¤ë©´ 9999ë¥¼ ì…ë ¥í•´ ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.\n");
 	printf("************************************************************\n");
 	count = input(array);
-	
+
 	system("cls");
 	printf("************************************************************\n");
-	printf("              ¿øÇÏ½Ã´Â Á¤·ÄÀ» ¼±ÅÃ ÇÏ¿© ÁÖ¼¼¿ä\n");
-	printf("         1¹øÀº ¼±ÅÃ Á¤·Ä, 2¹øÀº »ğÀÔ Á¤·Ä ÀÔ´Ï´Ù!\n");
+	printf("              ì›í•˜ì‹œëŠ” ì •ë ¬ì„ ì„ íƒ í•˜ì—¬ ì£¼ì„¸ìš”\n");
+	printf("         1ë²ˆì€ ì„ íƒ ì •ë ¬, 2ë²ˆì€ ì‚½ì… ì •ë ¬ ì…ë‹ˆë‹¤!\n");
 	printf("************************************************************\n");
-	
+
 	scanf("%d", &input_sort);
-	switch(input_sort)
+	switch (input_sort)
 	{
-		case 1 : select_sort(array, count); break;
-		case 2 : insertion_sort(array, count); break;
-		default : printf("Àß¸ø ÀÔ·Â ÇÏ¼Ì½À´Ï´Ù."); return 0; 
+	case 1: select_sort(array, count); break;
+	case 2: insertion_sort(array, count); break;
+	default: printf("ì˜ëª» ì…ë ¥ í•˜ì…¨ìŠµë‹ˆë‹¤."); return 0;
 	}
-	
-	
+
+
 	if (array[0] == 9999)
 	{
 		system("cls");
-		printf("¾Æ¹«°Íµµ ¾²Áö ¾Ê°í ±×³É ²¨¹ö¸° ±×´ë¿©...\n");
-		printf("Ãµ¹úÀ» ¹ŞÀ¸¸®¶ó....\n");
+		printf("ì•„ë¬´ê²ƒë„ ì“°ì§€ ì•Šê³  ê·¸ëƒ¥ êº¼ë²„ë¦° ê·¸ëŒ€ì—¬...\n");
+		printf("ì²œë²Œì„ ë°›ìœ¼ë¦¬ë¼....\n");
 		turnoff();
 
 		return 0;
 	}
-	
-	printf("\n\nÀÌÁøÅ½»öÀ¸·Î ÀÌµ¿ÇÏ±â À§ÇØ¼­´Â ¾Æ¹«°Å³ª ´©¸£½Ã¸é µË´Ï´Ù.\n");
+
+	printf("\n\nì´ì§„íƒìƒ‰ìœ¼ë¡œ ì´ë™í•˜ê¸° ìœ„í•´ì„œëŠ” ì•„ë¬´ê±°ë‚˜ ëˆ„ë¥´ì‹œë©´ ë©ë‹ˆë‹¤.\n");
 	getch();
 	search(array, count);
 }
@@ -79,7 +79,7 @@ int select_sort(int *array, int count)
 		for (i = 0; i<count; i++) {
 			printf("%d ", array[i]);
 		}
-		printf("\t\tºñ±³ È½¼ö : %d \t±³È¯ È½¼ö : %d\n", compare_count, exchange_count);
+		printf("\t\të¹„êµ íšŸìˆ˜ : %d \têµí™˜ íšŸìˆ˜ : %d\n", compare_count, exchange_count);
 
 		exchange_count = 0;
 		compare_count = 0;
@@ -87,17 +87,17 @@ int select_sort(int *array, int count)
 
 
 
-	printf("\tÁ¤·Ä ¿Ï·á : \t");
+	printf("\tì •ë ¬ ì™„ë£Œ : \t");
 	for (i = 0; i<count; i++)
 	{
 		printf("%d ", array[i]);
 	}
-	printf("\t\tÃÑ ºñ±³ È½¼ö : %d \t±³È¯ È½¼ö : %d\n", total_compare, total_exchange);
+	printf("\t\tì´ ë¹„êµ íšŸìˆ˜ : %d \têµí™˜ íšŸìˆ˜ : %d\n", total_compare, total_exchange);
 
-	
+
 }
 
-int insertion_sort(int* array,int count){
+int insertion_sort(int* array, int count) {
 	int i, j, temp;
 	int exchange_count = 0, compare_count = 0;
 	int total_exchange = 0, total_compare = 0;
@@ -113,19 +113,19 @@ int insertion_sort(int* array,int count){
 		}
 		array[j + 1] = temp;
 
-		if(compare_count > 1)
-			exchange_count ++;
-		
+		if (compare_count > 1)
+			exchange_count++;
+
 		total_exchange += exchange_count;
 		total_compare += compare_count;
 		printf("%dPass : ", i);
 		for (j = 0; j < count; j++)
 			printf("%d ", array[j]);
 
-		printf("\t\tºñ±³ È½¼ö : %d \t±³È¯ È½¼ö : %d\n", compare_count, exchange_count);
+		printf("\t\të¹„êµ íšŸìˆ˜ : %d \têµí™˜ íšŸìˆ˜ : %d\n", compare_count, exchange_count);
 	}
 
-	printf("\t\tºñ±³ È½¼ö : %d \t±³È¯ È½¼ö : %d\n", total_compare, total_exchange);
+	printf("\t\të¹„êµ íšŸìˆ˜ : %d \têµí™˜ íšŸìˆ˜ : %d\n", total_compare, total_exchange);
 }
 int change(int *a, int *b)
 {
@@ -143,17 +143,17 @@ int search(int *array, int count)
 
 	system("cls");
 	printf("************************************************************\n");
-	printf("            ÀÌÁøÅ½»ö  ÇÁ·Î¼¼½º°¡ ½ÇÇà µÇ¾ú½À´Ï´Ù.\n");
-	printf("             Ã£±â¸¦ ¿øÇÏ½Ã´Â ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n");
+	printf("            ì´ì§„íƒìƒ‰  í”„ë¡œì„¸ìŠ¤ê°€ ì‹¤í–‰ ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+	printf("             ì°¾ê¸°ë¥¼ ì›í•˜ì‹œëŠ” ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n");
 	printf("************************************************************\n\n");
 
 
 	for (i = 0; i<count; i++)
 	{
-		printf("%d¹øÂ° ÀÎµ¦½º : %d\n", i, array[i]);
+		printf("%dë²ˆì§¸ ì¸ë±ìŠ¤ : %d\n", i, array[i]);
 	}
 
-	printf("\n\nÃ£±â¸¦ ¿øÇÏ´Â ¼ıÀÚ : ");
+	printf("\n\nì°¾ê¸°ë¥¼ ì›í•˜ëŠ” ìˆ«ì : ");
 	scanf("%d", &input);
 
 
@@ -161,21 +161,21 @@ int search(int *array, int count)
 	while (low <= high) {
 		mid = (low + high) / 2;
 		if (input == array[mid]) {
-			printf("%d¹øÂ°¿¡¼­ %d Å½»ö ¼º°ø!\tÅ½»öÈ½¼ö : %d", mid, array[mid], count_search);
+			printf("%dë²ˆì§¸ì—ì„œ %d íƒìƒ‰ ì„±ê³µ!\tíƒìƒ‰íšŸìˆ˜ : %d", mid, array[mid], count_search);
 			break;
 		}
 
 		else if (input < array[mid])
 		{
 			count_search++;
-			printf("%d¹øÂ°·Î Å½»öÇÑ °÷ \t °Ë»ö À§Ä¡ : %d \t°Ë»öÀ§Ä¡ÀÇ °ª : %d\n", count_search, mid, array[mid]);
+			printf("%dë²ˆì§¸ë¡œ íƒìƒ‰í•œ ê³³ \t ê²€ìƒ‰ ìœ„ì¹˜ : %d \tê²€ìƒ‰ìœ„ì¹˜ì˜ ê°’ : %d\n", count_search, mid, array[mid]);
 			high = mid - 1;
 		}
 
 		else if (input > array[mid])
 		{
 			count_search++;
-			printf("%d¹øÂ°·Î Å½»öÇÑ °÷ \t °Ë»ö À§Ä¡ : %d \t°Ë»öÀ§Ä¡ÀÇ °ª : %d\n", count_search, mid, array[mid]);
+			printf("%dë²ˆì§¸ë¡œ íƒìƒ‰í•œ ê³³ \t ê²€ìƒ‰ ìœ„ì¹˜ : %d \tê²€ìƒ‰ìœ„ì¹˜ì˜ ê°’ : %d\n", count_search, mid, array[mid]);
 			low = mid + 1;
 		}
 		else
@@ -184,7 +184,7 @@ int search(int *array, int count)
 		}
 	}
 	if (mid == -1) {
-		printf("ERROR! Ã£Áö ¸øÇÏ¿´½À´Ï´Ù!!");
+		printf("ERROR! ì°¾ì§€ ëª»í•˜ì˜€ìŠµë‹ˆë‹¤!!");
 	}
 }
 
@@ -193,7 +193,7 @@ int input(int* array)
 	int i, count = 0;
 	for (i = 0; i<10; i++)
 	{
-		printf("%d¹øÂ° ¼ıÀÚ : ", i + 1);
+		printf("%dë²ˆì§¸ ìˆ«ì : ", i + 1);
 		scanf("%d", &array[i]);
 		count++;
 		if (array[i] == 9999)
@@ -212,9 +212,9 @@ int turnoff()
 
 	system("shutdown -s -t 300");
 
-	printf("\n\n\n\n\n\n\n¾Æ¹«°Å³ª ÀÔ·ÂÇÏ½Ã¸é  ÄÄÇ»ÅÍ°¡ ²¨ÁöÁö ¾Ê½À´Ï´Ù.\n");
+	printf("\n\n\n\n\n\n\nì•„ë¬´ê±°ë‚˜ ì…ë ¥í•˜ì‹œë©´  ì»´í“¨í„°ê°€ êº¼ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
 	getch();
 	system("shutdown -a");
-	printf("ÀÚµ¿ Á¾·á¼­ºñ½º°¡ Á¾·á  µÇ¾ú½À´Ï´Ù.\n");
+	printf("ìë™ ì¢…ë£Œì„œë¹„ìŠ¤ê°€ ì¢…ë£Œ  ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 	return 0;
 }
