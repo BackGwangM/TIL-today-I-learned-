@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <conio.h>
-#define change(temp, a, b) ((temp)=(a), (a)=(b), (b)=(temp))
 
 int main(void)
 {
@@ -16,27 +15,17 @@ int main(void)
 int select_sort(void)
 {
 	int array[10];
-	int min, count = 0;
+	int min, count = 0, find_start;
 	int i, temp, j, exchange_count = 0, compare_count = 0, total_exchange = 0, total_compare = 0;
 
 	system("cls");
 	printf("************************************************************\n");
-	printf("         선택 정렬 프로세스가 실행 되었습니다.\n");
+	printf("              정렬 프로세스가 실행 되었습니다.\n");
 	printf("  정렬을 원하시는 숫자를 입력해주세요(10개 까지만 가능)\n");
 	printf(" 그만 입력하시고 싶으시다면 9999를 입력해 주시면 됩니다.\n");
 	printf("************************************************************\n");
-
-	for (i = 0; i<10; i++)
-	{
-		printf("%d번째 숫자 : ", i + 1);
-		scanf("%d", &array[i]);
-		count++;
-		if (array[i] == 9999)
-		{
-			count--;
-			break;
-		}
-	}
+	
+	input(&array, &count);
 
 	for (j = 0; j<count; j++) {
 		min = j;
@@ -46,9 +35,13 @@ int select_sort(void)
 				min = i;
 			compare_count++;
 		}
-
-			change(temp, array[min], array[j]);
+		
+		if(array[min] != array[j])
+		{
+			change (&array[min], &array[j]);
 			exchange_count++;
+		}
+		
 			
 		total_exchange = total_exchange + exchange_count;
 		total_compare = total_compare + compare_count;
@@ -84,7 +77,16 @@ int select_sort(void)
 	
 	printf("\n\n이진탐색으로 이동하기 위해서는 아무거나 누르시면 됩니다.\n");
 	getch();
+	search(array, count);
 	
+}
+
+int change(int *a, int *b)
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 int search(int *array, int count)
@@ -127,7 +129,7 @@ int search(int *array, int count)
 		else if (input > array[mid])
 		{
 			count_search++;
-			printf("%d번째 탐색한 곳 \t 검색 위치 : %d \t검색위치의 값 : %d\n",count_search, mid, array[mid]);
+			printf("%d번째로 탐색한 곳 \t 검색 위치 : %d \t검색위치의 값 : %d\n",count_search, mid, array[mid]);
 			low = mid + 1;
 		}
 		else
@@ -139,6 +141,23 @@ int search(int *array, int count)
 		printf("ERROR! 찾지 못하였습니다!!");
 	}
 }
+
+int input(int *array, int *count)
+{
+	int i;
+	for (i = 0; i<10; i++)
+	{
+		printf("%d번째 숫자 : ", i + 1);
+		scanf("%d", &array[i]);
+		count++;
+		if (array[i] == 9999)
+		{
+			count--;
+			break;
+		}
+	}
+}
+
 
 int turnoff()
 {
